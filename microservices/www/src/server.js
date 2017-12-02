@@ -5,6 +5,8 @@ var router = express.Router();
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var path = require("path");
+var alex = require("alex")
+
 require('request-debug')(request);
 
 var hasuraExamplesRouter = require('./hasuraExamples');

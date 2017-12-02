@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var config = require('./config');
 var request = require('request');
+var alex = require('alex');
 
 router.route("/").get(function (req, res) {
   res.render('./static/index.html');
@@ -28,6 +29,21 @@ router.route("/get_articles").get(function (req, res) {
       }
     })
   }
+  router.route("/alex").get(function (req, res) {
+    console.log("Get articles");
+    //Fetch all rows from table - articles
+    var selectOptions = {
+      url: config.projectConfig.url.data,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Hasura-User-Id': 0,
+        'X-Hasura-Role': 'anonymous'
+      },
+      body:
+        alex('Confirmed his identity.').messages
+    }
+  
   request(selectOptions, function(error, response, body) {
     if (error) {
         console.log('Error from select request: ');
