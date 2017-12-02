@@ -11,7 +11,6 @@ router.route("/").get(function (req, res) {
 router.route("/alex-text").post(function (req, res) {
   console.log(req.body.text);
     res.json(alex(req.body.text).messages)
-    res.render('./static/index.html')
 })
 
 module.exports = router;
