@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', hasuraExamplesRouter);
+app.use('/alex-text', hasuraExamplesRouter);
 
 app.listen(8080, function () {
   console.log('Example app listening on port 8080!');
